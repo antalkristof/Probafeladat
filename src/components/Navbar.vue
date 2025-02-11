@@ -2,6 +2,7 @@
 import { ref, onMounted, watch } from 'vue'
 import { defineProps } from 'vue'
 import { useRouter } from 'vue-router'
+import inputComponent from './inputComponent.vue'
 
 
 const props = defineProps({
@@ -55,10 +56,16 @@ watch(
             <a class="nav-link active">Új projektek hozzáadása</a>
           </li>
         </ul>
-        <form v-if="search" class="d-flex" role="search">
-          <input v-model="searchQuery" @input="emitSearchQuery" class="form-control me-2 search-input" type="search"
-            placeholder="Search" aria-label="Search">
-        </form>
+        <div v-if="search" class="d-flex" role="search">
+          <input 
+          v-model="searchQuery" 
+          @input="emitSearchQuery" 
+          class="form-control me-2 search-input" 
+          type="search"
+          placeholder="Search" 
+          aria-label="Search"
+          >
+        </div>
       </div>
     </div>
   </nav>

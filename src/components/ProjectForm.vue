@@ -4,6 +4,7 @@ import { required, minValue } from "@vuelidate/validators";
 import useVuelidate from "@vuelidate/core";
 import Navbar from './navBar.vue';
 import appButton from './appButton.vue';
+import inputComponent from './inputComponent.vue';
 
 
 const projectName = ref("");
@@ -91,22 +92,35 @@ const save = async () => {
       <Navbar />
     </header>
     <form @submit.prevent="save">
-      <div class="mb-3 input-div">
-        <label for="ProjectName" class="form-label">Project neve</label>
-        <input type="text" class="form-control" id="ProjectName" v-model="projectName">
+      <div class="mb-3 input-div">        
+        <inputComponent 
+        inputId="ProjectName" 
+        labelText="Project neve" 
+        labelFor="ProjectName" 
+        inputPlaceholder="Project neve"
+        v-model="projectName"
+        />
         <div v-if="v$.projectName.$error" class="text-danger">
           <div v-for="error in v$.projectName.$errors" :key="error.$uid">
             {{ getProjectNameErrorMessage(error.$validator) }}
           </div>
         </div>
       </div>
+        
       <div class="mb-3 input-div">
         <label class="form-label" for="floatingTextarea">Leírás</label>
         <textarea class="form-control" id="floatingTextarea" v-model="description"></textarea>
       </div>
+      
       <div class="mb-3 input-div">
-        <label class="form-label" for="start">Kezdési dátum</label>
-        <input class="form-control" type="date" id="start" name="trip-start" v-model="startDate">
+        <inputComponent
+        inputType="date"
+        inputId="start"
+        labelText="Kezdési dátum"
+        labelFor="start"
+        inputPlaceholder="Kezdési dátum"
+        v-model="startDate"
+        />
         <div v-if="v$.startDate.$error" class="text-danger">
           <div v-for="error in v$.startDate.$errors" :key="error.$uid">
             {{ getStartDateErrorMessage(error.$validator) }}
@@ -114,8 +128,13 @@ const save = async () => {
         </div>
       </div>
       <div class="mb-3 input-div">
-        <label for="exampleInputPassword1" class="form-label">Költségvetés</label>
-          <input class="form-control" id="exampleInputPassword1" v-model="budget">
+        <inputComponent
+        inputId="budget"
+        labelFor="budget"
+        labelText="Költségvetés"
+        inputPlaceholder="Költségvetés"
+        v-model="budget"
+        />
         <div v-if="v$.budget.$error" class="text-danger">
           <div v-for="error in v$.budget.$errors" :key="error.$uid">
             {{ getBudgetErrorMessage(error.$validator) }}

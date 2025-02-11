@@ -18,7 +18,7 @@ const props = defineProps({
 </script>
 
 <template>
-    <button :class="buttonStyle" :style="border">
+    <button :class="buttonStyle">
         <i v-if="buttonIcon" :class="buttonIcon"></i>
          {{ buttonText }}
     </button>

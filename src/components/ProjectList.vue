@@ -4,6 +4,7 @@ import { required, minValue } from "@vuelidate/validators";
 import useVuelidate from "@vuelidate/core";
 import Navbar from './navBar.vue';
 import deleteModal from './deleteModal.vue';
+import inputComponent from './inputComponent.vue';
 
 
 const projects = ref([]);
@@ -61,7 +62,7 @@ const filteredProjects = computed(() => {
 });
 
 const formatBudget = (budget) => {
-  let val = (budget/1).toFixed(2).replace(".", ",");
+  let val = (budget / 1).toFixed(2).replace(".", ",");
   return val.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 };
 
@@ -97,14 +98,20 @@ onMounted(() => {
             :class="{ 'last-row': index === filteredProjects.length - 1 }">
             <th scope="row">{{ index + 1 }}</th>
             <td v-if="!isEdited[index]">{{ project.projectName }}</td>
-            <td v-else><input type="text" class="form-control" v-model="project.projectName"></td>
-
+            <td v-else>
+              <inputComponent v-model="project.projectName" />
+            </td>
             <td v-if="!isEdited[index]">{{ project.description }}</td>
-            <td v-else><input type="text" class="form-control" v-model="project.description"></td>
+            <td v-else>
+              <inputComponent v-model="project.description" />
+            </td>
             <td v-if="!isEdited[index]">{{ formatDate(project.startDate) }}</td>
-            <td v-else><input type="date" class="form-control" v-model="project.startDate"></td>
+            <td v-else>
+              <inputComponent inputType="date" v-model="project.startDate" />
+            </td>
             <td v-if="!isEdited[index]">{{ formatBudget(project.budget) }} FT</td>
-            <td v-else><input class="form-control" v-model="project.budget">
+            <td v-else>
+              <inputComponent v-model="project.budget" />
             </td>
             <td>
               <button v-if="!isEdited[index]" type="button" class="edit-button"><i class="bi bi-pencil-square"
@@ -124,14 +131,8 @@ onMounted(() => {
       </table>
     </div>
   </div>
-  <deleteModal 
-  v-if="showDeleteModal !== null" 
-  :close="closeDeleteModal"
-  :deleteProject="() => deleteProject(showDeleteModal)"
-  :projectName="filteredProjects[showDeleteModal].projectName"
-  />
+  <deleteModal v-if="showDeleteModal !== null" :close="closeDeleteModal"
+    :deleteProject="() => deleteProject(showDeleteModal)" :projectName="filteredProjects[showDeleteModal].projectName" />
 </template>
 
-<style scoped>
-@import url("../assets/projectList.css");
-</style>
+<style scoped>@import url("../assets/projectList.css");</style>
