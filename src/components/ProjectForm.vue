@@ -12,10 +12,20 @@ const startDate = ref("");
 const budget = ref("");
 
 const rules = {
-  projectName: { required },
+  projectName: { 
+    required: required ,
+    $autoDirty: true,
+  },
   description: {},
-  startDate: { required },
-  budget: { required, minValue: minValue(0) },
+  startDate: { 
+    required: required,
+    $autoDirty: true,
+  },
+  budget: { 
+    required: required,
+    minValue: minValue(0),
+    $autoDirty: true,
+  },
 };
 
 const v$ = useVuelidate(rules, { projectName, description, startDate, budget });
@@ -39,7 +49,7 @@ const getBudgetErrorMessage = (validator) => {
     return "A költségvetés megadása kötelező!";
   }
   if (validator === "minValue") {
-    return "A költségvetés nem lehet negatív!";
+    return "A költségvetés nem lehet negatív vagy betű!";
   }
   return "";
 };
