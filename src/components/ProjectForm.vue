@@ -118,31 +118,5 @@ const save = async () => {
 </template>
 
 <style scoped>
-form{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 2rem;
-}
-
-.input-div{
-  width: 50%;
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-}
-
-input{
-  box-shadow: 3px 2px 5px 1px rgba(0, 0, 0, 0.4);
-}
-
-textarea{
-  box-shadow: 3px 2px 5px 1px rgba(0, 0, 0, 0.4);
-  min-height: 10rem;
-}
-
-.form-label{
-  font-size: medium;
-  font-weight: bold;
-}
+@import url("../assets/projectForm.css");
 </style>

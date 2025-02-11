@@ -1,0 +1,47 @@
+.table-div {
+    width: 100%;
+    margin-top: 3rem;
+    box-shadow: 3px 2px 5px 1px rgba(0, 0, 0, 0.4);
+    border-radius: 1rem;
+    border: none;
+    max-height: 45rem;
+    overflow-y: auto;
+  }
+  
+  .table-header {
+    position: sticky;
+    top: 0;
+    box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.4);
+  }
+  
+  td{
+    max-width: 5rem;
+  }
+  
+  .table-div::-webkit-scrollbar {
+    display: none;
+  }
+  
+  .edit-button {
+    background-color: transparent;
+    border: none;
+    color: black;
+    font-size: 1.5rem;
+  }
+  
+  .bi-pencil-square:hover {
+    color: orange;
+  }
+  
+  .bi-trash-fill:hover,
+  .bi-x-circle:hover {
+    color: red;
+  }
+  
+  .bi-floppy-fill:hover {
+    color: green;
+  }
+  
+  .form-control {
+    max-width: 100%;
+  }

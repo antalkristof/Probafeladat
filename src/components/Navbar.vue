@@ -65,40 +65,5 @@ watch(
 </template>
 
 <style scoped>
-.navbar {
-  width: 100%;
-  border-radius: 1rem;
-  box-shadow: 3px 2px 5px 1px rgba(0, 0, 0, 0.4);
-}
-
-.navbar-nav {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  gap: 2rem;
-}
-
-.nav-item {
-  cursor: pointer;
-  background: transparent;
-  border-radius: 1rem;
-}
-
-.nav-item:hover {
-  background: white;
-}
-
-.nav-link {
-  background: transparent;
-  border-radius: 1rem;
-}
-
-.nav-link:hover {
-  background: white;
-}
-
-.search-input {
-  border-radius: 1rem;
-  width: 20rem;
-}
+@import url("../assets/navbar.css");
 </style>
