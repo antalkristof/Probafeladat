@@ -114,13 +114,14 @@ onMounted(() => {
               <inputComponent v-model="project.budget" />
             </td>
             <td>
-              <button v-if="!isEdited[index]" type="button" class="edit-button"><i class="bi bi-pencil-square"
-                  @click="editProject(index)"></i>
+              <button v-if="!isEdited[index]" type="button" class="edit-button">
+                <i class="bi bi-pencil-square" @click="editProject(index)"></i>
               </button>
-              <button v-else type="button" class="edit-button"><i class="bi bi-floppy-fill" @click="saveEdit(index)"></i>
+              <button v-else type="button" class="edit-button">
+                <i class="bi bi-floppy-fill" @click="saveEdit(index)"></i>
               </button>
-              <button v-if="!isEdited[index]" type="button" class="edit-button"><i class="bi bi-trash-fill"
-                  @click="openDeleteModal(index)"></i>
+              <button v-if="!isEdited[index]" type="button" class="edit-button">
+                <i class="bi bi-trash-fill" @click="openDeleteModal(index)"></i>
               </button>
               <button v-else type="button" class="edit-button">
                 <i class="bi bi-x-circle" @click="closeEdit(index)"></i>
@@ -131,8 +132,12 @@ onMounted(() => {
       </table>
     </div>
   </div>
-  <deleteModal v-if="showDeleteModal !== null" :close="closeDeleteModal"
-    :deleteProject="() => deleteProject(showDeleteModal)" :projectName="filteredProjects[showDeleteModal].projectName" />
+  <deleteModal v-if="showDeleteModal !== null" 
+    :close="closeDeleteModal"
+    :deleteProject="() => deleteProject(showDeleteModal)" 
+    :projectName="filteredProjects[showDeleteModal].projectName" />
 </template>
 
-<style scoped>@import url("../assets/projectList.css");</style>
+<style scoped>
+@import url("../assets/projectList.css");
+</style>

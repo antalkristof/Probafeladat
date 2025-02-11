@@ -2,7 +2,6 @@
 import { ref, onMounted, watch } from 'vue'
 import { defineProps } from 'vue'
 import { useRouter } from 'vue-router'
-import inputComponent from './inputComponent.vue'
 
 
 const props = defineProps({
