@@ -2,9 +2,9 @@
 import { ref, onMounted, computed } from 'vue';
 import { required, minValue } from "@vuelidate/validators";
 import useVuelidate from "@vuelidate/core";
-import Navbar from './navBar.vue';
-import deleteModal from './deleteModal.vue';
-import inputComponent from './inputComponent.vue';
+import Navbar from '../components/navBar.vue';
+import deleteModal from '../components/deleteModal.vue';
+import inputComponent from '../components/inputComponent.vue';
 
 
 const projects = ref([]);

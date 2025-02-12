@@ -2,9 +2,9 @@
 import { ref } from "vue";
 import { required, minValue } from "@vuelidate/validators";
 import useVuelidate from "@vuelidate/core";
-import Navbar from './navBar.vue';
-import appButton from './appButton.vue';
-import inputComponent from './inputComponent.vue';
+import Navbar from '../components/navBar.vue';
+import appButton from '../components/appButton.vue';
+import inputComponent from '../components/inputComponent.vue';
 
 
 const projectName = ref("");

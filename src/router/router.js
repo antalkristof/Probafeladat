@@ -1,7 +1,7 @@
 import { createRouter, createWebHistory } from "vue-router";
-import ProjectForm from "../components/ProjectForm.vue";
-import ProjectList from "../components/ProjectList.vue";
-import HomePage from "../components/Homepage.vue";
+import ProjectForm from "../views/ProjectForm.vue";
+import ProjectList from "../views/ProjectList.vue";
+import HomePage from "../views/Homepage.vue";
 
 const router = createRouter({
     history: createWebHistory(),
@@ -12,12 +12,12 @@ const router = createRouter({
         component: HomePage,
       },
       {
-        path: "/projectform",
+        path: "/project-form",
         name: "projectform",
         component: ProjectForm,
       },
       {
-        path: "/projectlist",
+        path: "/project-list",
         name: "projectlist",
         component: ProjectList,
       }

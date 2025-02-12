@@ -20,11 +20,11 @@ const emit = defineEmits(["update:inputVModel"]);
 const searchQuery = ref(props.inputVModel);
 
 const NavigateToProjectList = () => {
-  router.push('/projectList')
+  router.push('/project-list')
 }
 
 const NavigateToProjectForm = () => {
-  router.push('/projectForm')
+  router.push('/project-form')
 }
 
 const emitSearchQuery = () => {
